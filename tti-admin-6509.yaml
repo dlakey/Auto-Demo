@@ -1,0 +1,7 @@
+---
+- hosts: tti-admin-6509
+  gather_facts: no
+  connection: local
+    
+  roles:
+    - role: tti-admin-6509

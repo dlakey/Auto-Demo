@@ -1,0 +1,16 @@
+  - name: Obtain Login
+    include_vars: pass.yaml
+
+  - name: Define TTI LP7 Switch1 Provider
+    set_fact:
+      provider:
+        host: "{{ inventory_hostname }}"
+        username: "{{ creds['username'] }}"
+        password: "{{ creds['password'] }}"
+        auth_pass: "{{ creds['auth_pass'] }}"
+
+  - name: TT TTI LP7 Switch1 Config
+    ios_config:
+      provider: "{{ provider }}"
+      authorize: yes
+      src: "~/Auto-Demo/roles/tti-lp7-sw1/files/tti-lp7-sw1.cfg"

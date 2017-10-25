@@ -1,0 +1,16 @@
+  - name: Obtain Login
+    include_vars: pass.yaml
+
+  - name: Define TTI Bunker 5548 Provider
+    set_fact:
+      provider:
+        host: "{{ inventory_hostname }}"
+        username: "{{ creds['username'] }}"
+        password: "{{ creds['password'] }}"
+        auth_pass: "{{ creds['auth_pass'] }}"
+
+  - name: TTI Bunker 5548 Config
+    ios_config:
+      provider: "{{ provider }}"
+      authorize: yes
+      src: "~/Auto-Demo/roles/tti-bunker-5548/files/tti-bunker-5548.cfg"

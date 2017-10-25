@@ -1,0 +1,16 @@
+  - name: Obtain Login
+    include_vars: pass.yaml
+
+  - name: Define TTI LP70 Switch1 Provider
+    set_fact:
+      provider:
+        host: "{{ inventory_hostname }}"
+        username: "{{ creds['username'] }}"
+        password: "{{ creds['password'] }}"
+        auth_pass: "{{ creds['auth_pass'] }}"
+
+  - name: TT TTI LP70 Switch1 Config
+    ios_config:
+      provider: "{{ provider }}"
+      authorize: yes
+      src: "~/Auto-RePo/roles/tti-lp70-sw1/files/tti-lp70-sw1.cfg"
