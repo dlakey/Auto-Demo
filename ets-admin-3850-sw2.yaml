@@ -1,0 +1,7 @@
+---
+- hosts: ets-admin-3850-sw2
+  gather_facts: no
+  connection: local
+    
+  roles:
+    - role: ets-admin-3850-sw2

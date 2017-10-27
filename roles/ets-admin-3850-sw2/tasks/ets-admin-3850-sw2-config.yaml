@@ -1,0 +1,16 @@
+  - name: Obtain Login
+    include_vars: pass.yaml
+
+  - name: Define ETS Admin 3850 Switch2 Provider
+    set_fact:
+      provider:
+        host: "{{ inventory_hostname }}"
+        username: "{{ creds['username'] }}"
+        password: "{{ creds['password'] }}"
+        auth_pass: "{{ creds['auth_pass'] }}"
+
+  - name: ETS Admin 3850 Switch2 Config
+    ios_config:
+      provider: "{{ provider }}"
+      authorize: yes
+      src: "~/Auto-Demo/roles/ets-admin-3850-sw2/files/ets-admin-3850-sw2.cfg"

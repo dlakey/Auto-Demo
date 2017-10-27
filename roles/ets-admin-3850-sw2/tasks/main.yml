@@ -1,0 +1,14 @@
+---
+# tasks file for ETS Admin 3850 Switch2
+- name: Obtain Login
+  include_vars: pass.yaml
+
+- name: Define ETS Admin 3850 Switch2 Provider
+  set_fact:
+    provider:
+      host: "{{ inventory_hostname }}"
+      username: "{{ creds['username'] }}"
+      password: "{{ creds['password'] }}"
+      auth_pass: "{{ creds['auth_pass'] }}"
+
+- include: ets-admin-3850-sw2-config.yaml

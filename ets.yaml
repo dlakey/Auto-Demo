@@ -1,0 +1,6 @@
+---
+- include: ets-admin-3850-sw1.yaml
+- include: ets-admin-3850-sw2.yaml
+- include: ets-lp5-sg300.yaml
+- include: ets-lp7-sg300.yaml
+- include: ets-lp15-sg300.yaml
